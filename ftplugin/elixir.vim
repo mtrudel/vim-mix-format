@@ -41,7 +41,6 @@ function! s:on_exit(_job, exitval, ...) dict abort
       for line in self.stdout
         echomsg line
       endfor
-      echohl ErrorMsg | echo 'Formatting failed. Check :messages.' | echohl NONE
     else
       if !empty(self.stdout)
         echomsg string(self.stdout)
@@ -50,7 +49,6 @@ function! s:on_exit(_job, exitval, ...) dict abort
         put =join(self.stdout, \"\n\")
         1delete
       endif
-      echohl ErrorMsg | echo 'Formatting failed.' | echohl NONE
     endif
     return
   endif
